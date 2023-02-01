@@ -28,7 +28,8 @@ struct HolidayRequest {
       
     }
     func getData (completion : @escaping(Result<[HolidayDetail] , HolidayError>) -> Void) {
-        let dataTask = URLSession.shared.dataTask(with: resourceURL!) { data, _, _ in
+        guard let requestURL = resourceURL else {return}
+        let dataTask = URLSession.shared.dataTask(with: requestURL) { data, _, _ in
             guard let jsonData = data else {
                 completion(.failure(.noDaataAvaiable))
                 return
