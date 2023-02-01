@@ -25,6 +25,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.prompt = "Let's learn what is the holidays of this year!"
+        self.navigationItem.title = "International Holidays"
         searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
